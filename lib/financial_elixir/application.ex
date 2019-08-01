@@ -9,7 +9,8 @@ defmodule FinancialElixir.Application do
     # List all child processes to be supervised
     children = [
       # Start the endpoint when the application starts
-      FinancialElixirWeb.Endpoint
+      FinancialElixirWeb.Endpoint,
+      FinancialElixir.Repo
       # Starts a worker by calling: FinancialElixir.Worker.start_link(arg)
       # {FinancialElixir.Worker, arg},
     ]

@@ -7,6 +7,9 @@
 # General application configuration
 use Mix.Config
 
+# Repo config
+config :financial_elixir, ecto_repos: [FinancialElixir.Repo]
+
 # Configures the endpoint
 config :financial_elixir, FinancialElixirWeb.Endpoint,
   url: [host: "localhost"],

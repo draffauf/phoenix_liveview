@@ -19,7 +19,7 @@ defmodule FinancialElixir.MixProject do
   def application do
     [
       mod: {FinancialElixir.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools, :phoenix_ecto, :absinthe_plug]
     ]
   end
 
@@ -32,14 +32,20 @@ defmodule FinancialElixir.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
+      {:absinthe, "~> 1.4.2"},
+      {:absinthe_plug, "~> 1.4"},
+      {:absinthe_phoenix, "~> 1.4.0"},
+      {:ecto_sql, "~> 3.1"},
+      {:gettext, "~> 0.11"},
+      {:jason, "~> 1.0"},
+      {:myxql, ">= 0.0.0"},
       {:phoenix, "~> 1.4.9"},
+      {:phoenix_ecto, "~> 4.0"},
       {:phoenix_pubsub, "~> 1.1"},
       {:phoenix_html, "~> 2.11"},
       {:phoenix_live_reload, "~> 1.2", only: :dev},
-      {:gettext, "~> 0.11"},
-      {:jason, "~> 1.0"},
-      {:plug_cowboy, "~> 2.0"},
-      {:phoenix_live_view, github: "phoenixframework/phoenix_live_view"}
+      {:phoenix_live_view, github: "phoenixframework/phoenix_live_view"},
+      {:plug_cowboy, "~> 2.0"}
     ]
   end
 end

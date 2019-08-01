@@ -16,14 +16,20 @@ defmodule FinancialElixirWeb.Router do
   end
 
   scope "/", FinancialElixirWeb do
-    pipe_through :browser
+    # pipe_through :browser
 
-    # get "/", PageController, :index
-    live("/", CounterLive)
+    # # get "/", PageController, :index
+    # live("/", CounterLive)
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", FinancialElixirWeb do
-  #   pipe_through :api
-  # end
+  scope "/api" do
+    pipe_through :api
+
+    forward "/graphql", Absinthe.Plug,
+      schema: FinancialElixirWeb.Schema
+
+    forward "/graphiql", Absinthe.Plug.GraphiQL,
+      schema: FinancialElixirWeb.Schema
+  end
 end

@@ -1,5 +1,13 @@
 use Mix.Config
 
+# Database config
+config :financial_elixir, FinancialElixir.Repo,
+  username: "",
+  password: "",
+  database: "phoenix_development",
+  hostname: "localhost",
+  pool_size: 10
+
 # For development, we disable any cache and enable
 # debugging and code reloading.
 #
